@@ -1,0 +1,33 @@
+@import "styles/mixins";
+@import "styles/props";
+
+@mixin alignment($alignment) {
+  @include customAttribute('lmu-alignment', $alignment) {
+    @content;
+  }
+}
+
+:host {
+  font-weight: 500;
+
+  @include alignment('center') {
+    @include flex(center, null, column);
+  }
+
+  @include alignment('left') {
+    @include flex(flex-start, null, column);
+  }
+}
+
+// top label
+.lmu-field-label-top {
+  font-size: 14px;
+  line-height: 20px;
+}
+
+// bottom label
+.lmu-field-label-bottom {
+  font-size: 10px;
+  line-height: 15px;
+  text-transform: uppercase;
+}

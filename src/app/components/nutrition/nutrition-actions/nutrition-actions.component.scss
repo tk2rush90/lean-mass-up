@@ -1,0 +1,17 @@
+@import "styles/mixins";
+@import "styles/props";
+
+:host {
+  @include flex(center, center);
+  @include padding(20px 0);
+}
+
+.lmu-dot {
+  @include ball(4px);
+  background-color: $white;
+  margin: 0 10px;
+}
+
+.lmu-nutrition-action {
+  font-size: 12px;
+}

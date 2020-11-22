@@ -1,0 +1,41 @@
+<!-- food name -->
+<div class="lmu-food-name">
+  <ng-container [ngSwitch]="type">
+    <!-- data -->
+    <ng-container *ngSwitchCase="'data'">
+      {{data?.name}}
+    </ng-container>
+
+    <!-- record -->
+    <ng-container *ngSwitchCase="'record'">
+      {{record?.food?.name}}
+    </ng-container>
+  </ng-container>
+</div>
+
+<!-- food additional info -->
+<div
+  *ngIf="!hideInfo"
+  class="lmu-food-info">
+  <ng-container [ngSwitch]="type">
+    <!-- data type -->
+    <ng-container *ngSwitchCase="'data'">
+      <div class="lmu-food-nutrition-item">
+        탄수화물 {{data?.carbohydrates}}g
+      </div>
+
+      <div class="lmu-food-nutrition-item">
+        단백질 {{data?.proteins}}g
+      </div>
+
+      <div class="lmu-food-nutrition-item">
+        지방 {{data?.fats}}g
+      </div>
+    </ng-container>
+
+    <!-- record type -->
+    <ng-container *ngSwitchCase="'record'">
+      {{record?.quantity}}EA
+    </ng-container>
+  </ng-container>
+</div>

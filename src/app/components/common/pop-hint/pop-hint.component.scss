@@ -1,0 +1,24 @@
+@import "styles/mixins";
+@import "styles/props";
+
+:host {
+  @include flex(center, null, column);
+}
+
+// hint container
+.lmu-pop-hint {
+  @include padding(10px);
+  text-align: center;
+  background-color: $night-rider;
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 20px;
+  color: $white;
+  white-space: nowrap;
+}
+
+// hint arrow
+.lmu-pop-hint-arrow {
+  margin-top: -1px;
+}

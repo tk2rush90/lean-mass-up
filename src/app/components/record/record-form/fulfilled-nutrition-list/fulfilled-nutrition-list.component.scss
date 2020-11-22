@@ -1,0 +1,10 @@
+@import "styles/mixins";
+@import "styles/props";
+
+:host {
+  display: block;
+}
+
+app-nutrition-value + app-nutrition-value {
+  margin-top: 5px;
+}

@@ -1,0 +1,13 @@
+<!-- wave background -->
+<app-wave-background
+  [animateHeight]="true"
+  [color]="color"
+  [initialHeightLevel]="0"
+  [interactive]="true"></app-wave-background>
+
+<!-- nutrition status value -->
+<app-nutrition-status-value
+  [@nutritionShowUp]="nutritionState"
+  [type]="type"
+  [required]="requiredNutrition"
+  [fulfilled]="fulfilledNutrition"></app-nutrition-status-value>

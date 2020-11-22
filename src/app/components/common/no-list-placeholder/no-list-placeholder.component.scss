@@ -1,0 +1,10 @@
+@import "styles/mixins";
+@import "styles/props";
+
+:host {
+  @include flex(center, center);
+  @include padding(20px 0);
+  font-size: 14px;
+  font-weight: 400;
+  color: $nobel;
+}

@@ -1,0 +1,92 @@
+<form
+  (ngSubmit)="onSubmit()"
+  [formGroup]="group">
+  <!-- food name -->
+  <div class="lmu-field-row">
+    <!-- label -->
+    <app-field-label
+      en="food name"
+      ko="식품명"></app-field-label>
+
+    <!-- input -->
+    <input
+      class="lmu-food-name-input"
+      formControlName="name"
+      placeholder="식품명을 쓰세요"
+      type="text"/>
+  </div>
+
+  <!-- carbs -->
+  <div class="lmu-field-row">
+    <app-field-label
+      en="carbohydrates"
+      ko="탄수화물"></app-field-label>
+
+    <div class="lmu-nutrition-input-wrapper">
+      <input
+        appNumberInput
+        class="lmu-nutrition-input"
+        formControlName="carbohydrates"
+        fixed="2"
+        type="number"/>
+
+      <span class="lmu-nutrition-unit">g</span>
+    </div>
+  </div>
+
+  <!-- proteins -->
+  <div class="lmu-field-row">
+    <app-field-label
+      en="proteins"
+      ko="단백질"></app-field-label>
+
+    <div class="lmu-nutrition-input-wrapper">
+      <input
+        appNumberInput
+        class="lmu-nutrition-input"
+        formControlName="proteins"
+        fixed="2"
+        type="number"/>
+
+      <span class="lmu-nutrition-unit">g</span>
+    </div>
+  </div>
+
+  <!-- fats -->
+  <div class="lmu-field-row">
+    <app-field-label
+      en="fats"
+      ko="지방"></app-field-label>
+
+    <div class="lmu-nutrition-input-wrapper">
+      <input
+        appNumberInput
+        class="lmu-nutrition-input"
+        formControlName="fats"
+        fixed="2"
+        type="number"/>
+
+      <span class="lmu-nutrition-unit">g</span>
+    </div>
+  </div>
+
+  <!-- hidden button -->
+  <button hidden></button>
+</form>
+
+<!-- edit actions -->
+<app-edit-actions
+  (cancelClick)="cancelClick.emit()"
+  (editClick)="onSubmit()"
+  *ngIf="editMode; else addButton"></app-edit-actions>
+
+<!-- add button -->
+<ng-template #addButton>
+  <!-- add button -->
+  <app-labeled-button
+    (buttonClick)="onSubmit()"
+    class="lmu-add-button"
+    color="blue"
+    en="add"
+    ko="추가"></app-labeled-button>
+</ng-template>

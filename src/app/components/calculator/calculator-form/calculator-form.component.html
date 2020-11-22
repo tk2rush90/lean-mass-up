@@ -1,0 +1,49 @@
+<app-box>
+  <app-logo></app-logo>
+
+  <!-- weight input -->
+  <app-weight-input
+    #weightModel="ngModel"
+    (ngModelChange)="onWeightChange($event)"
+    [ngModel]="weight"></app-weight-input>
+
+  <!-- protein ratio slider -->
+  <app-protein-ratio
+    (ngModelChange)="onProteinRatioChange($event)"
+    [ngModel]="proteinRatio"></app-protein-ratio>
+
+  <!-- required calories -->
+  <app-required-calories
+    [calories]="muscleGrowthCalories"></app-required-calories>
+
+  <!-- nutrition list wrapper -->
+  <div class="lmu-nutrition-list-wrapper">
+    <!-- nutrition required -->
+    <!-- carbohydrates -->
+    <app-nutrition-value
+      [requiredNutrition]="requiredCarbohydrates"
+      nutritionType="carbohydrates"
+      type="required"></app-nutrition-value>
+
+    <!-- proteins -->
+    <app-nutrition-value
+      [requiredNutrition]="requiredProteins"
+      nutritionType="proteins"
+      type="required"></app-nutrition-value>
+
+    <!-- fats -->
+    <app-nutrition-value
+      [requiredNutrition]="requiredFats"
+      nutritionType="fats"
+      type="required"></app-nutrition-value>
+  </div>
+
+  <!-- next button -->
+  <button
+    (click)="onClickNext()"
+    class="lmu-next-button"
+    appInlineButton
+    color="black">
+    SAVE
+  </button>
+</app-box>

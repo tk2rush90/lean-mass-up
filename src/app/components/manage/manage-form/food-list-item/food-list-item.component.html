@@ -1,0 +1,41 @@
+<ng-container [ngSwitch]="viewType">
+  <!-- read mode -->
+  <ng-container *ngSwitchCase="'read'">
+    <!-- detail wrapper -->
+    <div class="lmu-food-detail-wrapper lmu-read-detail">
+      <app-food-name
+        [food]="food"
+        type="data"></app-food-name>
+
+      <!-- actions -->
+      <app-food-actions
+        (deleteClick)="changeViewType('delete')"
+        (editClick)="changeViewType('edit')"></app-food-actions>
+    </div>
+  </ng-container>
+
+  <!-- edit mode -->
+  <ng-container *ngSwitchCase="'edit'">
+    <app-food-input-form
+      (cancelClick)="changeViewType('read')"
+      (submitFood)="editFood($event)"
+      [editMode]="true"
+      [food]="food"
+      [foods]="foods"></app-food-input-form>
+  </ng-container>
+
+  <!-- delete mode -->
+  <ng-container *ngSwitchCase="'delete'">
+    <!-- detail wrapper -->
+    <div class="lmu-food-detail-wrapper">
+      <app-food-name
+        [food]="food"
+        type="data"></app-food-name>
+    </div>
+
+    <!-- actions -->
+    <app-delete-actions
+      (cancelClick)="changeViewType('read')"
+      (deleteClick)="deleteFood()"></app-delete-actions>
+  </ng-container>
+</ng-container>

@@ -1,0 +1,14 @@
+@import "styles/mixins";
+@import "styles/props";
+
+:host {
+  @include flex(center, null, column);
+}
+
+app-field-label + app-slider {
+  margin-top: 10px;
+}
+
+app-slider {
+  width: 100%;
+}

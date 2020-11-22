@@ -1,0 +1,42 @@
+<!-- label -->
+<app-field-label
+  [en]="en"
+  [ko]="ko"
+  alignment="left"></app-field-label>
+
+<!-- nutrition value wrapper -->
+<div class="lmu-nutrition-value-wrapper">
+  <ng-container [ngSwitch]="type">
+    <!-- for `'required'` type -->
+    <ng-container *ngSwitchCase="'required'">
+      <!-- required nutrition value -->
+      <div
+        [style.color]="color"
+        class="lmu-nutrition-value">
+        {{requiredNutrition | number: '0.0-1'}}
+      </div>
+
+      <!-- unit as sub value -->
+      <div class="lmu-nutrition-sub-value">
+        g
+      </div>
+    </ng-container>
+
+    <!-- for `'fulfilled'` type -->
+    <ng-container *ngSwitchCase="'fulfilled'">
+      <!-- required nutrition value -->
+      <div
+        [style.color]="color"
+        class="lmu-nutrition-value lmu-fulfilled-type">
+        {{fulfilledNutrition | number: '0.0-1'}}
+      </div>
+
+      <!-- unit as sub value -->
+      <div
+        [style.color]="color"
+        class="lmu-nutrition-sub-value lmu-fulfilled-type">
+        /{{requiredNutrition | number: '0.0-1'}}g
+      </div>
+    </ng-container>
+  </ng-container>
+</div>

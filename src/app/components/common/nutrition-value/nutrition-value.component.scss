@@ -1,0 +1,39 @@
+@import "styles/mixins";
+@import "styles/props";
+
+:host {
+  @include flex(center, space-between);
+}
+
+// value wrapper
+.lmu-nutrition-value-wrapper {
+  @include flex(flex-start);
+}
+
+// value
+.lmu-nutrition-value {
+  font-size: 40px;
+  line-height: 59px;
+  font-weight: 500;
+
+  &.lmu-fulfilled-type {
+    font-size: 30px;
+    line-height: 45px;
+  }
+}
+
+// sub value
+.lmu-nutrition-sub-value {
+  position: relative;
+  top: 27px;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 500;
+  margin-left: 5px;
+
+  &.lmu-fulfilled-type {
+    top: 19px;
+    font-size: 12px;
+    line-height: 18px;
+  }
+}

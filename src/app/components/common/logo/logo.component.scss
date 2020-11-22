@@ -1,0 +1,20 @@
+@import "styles/mixins";
+@import "styles/props";
+
+:host {
+  @include flex(center, center, column);
+  user-select: none;
+}
+
+// title line
+.lmu-title-line {
+  text-align: center;
+  font-size: 12px;
+  line-height: 12px;
+  font-weight: 900;
+}
+
+// letter initial state
+.lmu-title-letter {
+  color: $white;
+}

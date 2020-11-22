@@ -1,0 +1,46 @@
+@import "styles/mixins";
+@import "styles/props";
+
+:host {
+  @include ball(30px);
+  position: relative;
+  background-color: $silver;
+  animation: spinning .5s infinite linear;
+}
+
+// ball in a spinner
+.lmu-spinner-ball {
+  @include ball(5px);
+  position: absolute;
+  background-color: $night-rider;
+
+  &:nth-child(1) {
+    @include horizontalCenter;
+    top: 3px;
+  }
+
+  &:nth-child(2) {
+    @include verticalCenter;
+    right: 3px;
+  }
+
+  &:nth-child(3) {
+    @include horizontalCenter;
+    bottom: 3px;
+  }
+
+  &:nth-child(4) {
+    @include verticalCenter;
+    left: 3px;
+  }
+}
+
+@keyframes spinning {
+  0% {
+    transform: rotate(0);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}

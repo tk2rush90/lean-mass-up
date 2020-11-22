@@ -1,0 +1,64 @@
+@import "styles/mixins";
+@import "styles/props";
+
+:host {
+  position: relative;
+  display: block;
+  height: 38px;
+
+  @include under1024 {
+    height: auto;
+  }
+}
+
+// header wrapper
+.lmu-record-header-wrapper {
+  @include flex(center, space-between);
+  @include box(100%);
+
+  @include under1024 {
+    height: 70px;
+  }
+}
+
+// weight of that day
+.lmu-weight {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+// settings icon
+.lmu-settings {
+  display: block;
+  cursor: pointer;
+
+  path {
+    fill: $gainsboro;
+    transition: fill .15s;
+  }
+
+  &:hover {
+    path {
+      fill: $dodger-blue;
+    }
+  }
+}
+
+app-record-date-selector {
+  @include center;
+  position: absolute;
+
+  @include under1024 {
+    position: relative;
+    transform: none;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+}
+
+.lmu-record-header-wrapper + app-record-date-selector {
+  @include under1024 {
+    margin-top: 15px;
+  }
+}

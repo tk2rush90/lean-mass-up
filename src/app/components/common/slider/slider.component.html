@@ -1,0 +1,42 @@
+<!-- label track -->
+<div class="lmu-slider-label-wrapper">
+  <!-- label -->
+  <div
+    #label
+    [class.lmu-slider-label-grabbing]="grabbing"
+    class="lmu-slider-label">
+    <!-- label value -->
+    <div class="lmu-slider-label-value">
+      {{value}}
+    </div>
+
+    <!-- label arrow -->
+    <svg
+      #labelArrow
+      class="lmu-slider-label-arrow"
+      height="5"
+      viewBox="0 0 10 5"
+      width="10"
+      xmlns="http://www.w3.org/2000/svg">
+      <path d="M5,0l5,5H0Z" transform="translate(10 5) rotate(180)" fill="#82b8ff"/>
+    </svg>
+  </div>
+</div>
+
+
+<!-- controller wrapper -->
+<div class="lmu-slider-track-wrapper">
+  <!-- track -->
+  <div
+    #sliderTrack
+    (click)="onTrackClick($event)"
+    [class.lmu-grabbing]="grabbing"
+    class="lmu-slider-track"></div>
+
+  <!-- button -->
+  <div
+    #sliderButton
+    (mousedown)="grabButton()"
+    [class.lmu-grabbing]="grabbing"
+    class="lmu-slider-button"></div>
+</div>

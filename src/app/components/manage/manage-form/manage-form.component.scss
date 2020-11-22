@@ -1,0 +1,46 @@
+@import "styles/mixins";
+@import "styles/props";
+
+:host {
+  display: block;
+  width: 550px;
+}
+
+app-box {
+  @include box(100%);
+  @include padding(40px);
+  @include flex(stretch, null, column, nowrap);
+  height: calc(100vh - 120px - 48px);
+  overflow: auto;
+
+  @include under1024 {
+    @include padding(20px 25px);
+    height: 100%;
+  }
+
+  app-food-list {
+    @include itemFlex(1, 1, 0);
+  }
+}
+
+app-logo {
+  display: none;
+
+  @include under1024 {
+    display: flex;
+  }
+}
+
+app-logo + app-food-input-form {
+  @include under1024 {
+    margin-top: 35px;
+  }
+}
+
+app-food-list {
+  width: 100%;
+}
+
+app-food-input-form + app-food-list {
+  margin-top: 25px;
+}

@@ -1,0 +1,19 @@
+@import "styles/mixins";
+@import "styles/props";
+
+:host {
+  display: block;
+  cursor: pointer;
+
+  &:hover {
+    .lmu-setting-path {
+      fill: $dodger-blue;
+    }
+  }
+}
+
+// icon path fill
+.lmu-setting-path {
+  fill: $gainsboro;
+  transition: fill .15s;
+}

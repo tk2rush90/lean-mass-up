@@ -1,0 +1,47 @@
+@import "styles/mixins";
+@import "styles/props";
+
+@mixin color($color) {
+  @include customAttribute('lmu-color', $color) {
+    @content;
+  }
+}
+
+/**
+ * @param $color color name
+ * @param $initial initial color
+ * @param $hover hover color
+ * @param $active active color
+ */
+@mixin inlineButton($color, $initial, $hover, $active) {
+  @include color($color) {
+    color: $initial;
+
+    &:hover {
+      color: $hover;
+    }
+
+    &:active {
+      color: $active;
+    }
+  }
+}
+
+// set inline button styles
+.lmu-inline-button {
+  cursor: pointer;
+  display: block;
+  transition: color .1s;
+
+  // black color
+  @include inlineButton('black', $black, $dodger-blue, lighten($dodger-blue, 20%));
+
+  // white color
+  @include inlineButton('white', $white, $black, lighten($black, 10%));
+
+  // grey-blue color
+  @include inlineButton('grey-blue', $nobel, $dodger-blue, lighten($dodger-blue, 20%));
+
+  // grey-red
+  @include inlineButton('grey-red', $nobel, $red-orange2, lighten($red-orange2, 20%));
+}

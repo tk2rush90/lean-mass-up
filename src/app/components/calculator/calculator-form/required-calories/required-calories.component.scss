@@ -1,0 +1,29 @@
+@import "styles/mixins";
+@import "styles/props";
+
+:host {
+  @include flex(center, null, column);
+}
+
+// gap
+app-field-label + .lmu-required-calories-wrapper {
+  margin-top: 10px;
+}
+
+// wrapper
+.lmu-required-calories-wrapper {
+  position: relative;
+}
+
+// calories value
+.lmu-required-calories-value {
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 59px;
+}
+
+app-number-unit {
+  position: absolute;
+  left: calc(100% + 5px);
+  bottom: 10px;
+}

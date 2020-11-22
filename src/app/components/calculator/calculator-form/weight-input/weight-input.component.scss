@@ -1,0 +1,38 @@
+@import "styles/mixins";
+@import "styles/props";
+
+:host {
+  @include flex(center, null, column);
+}
+
+// gap
+app-field-label + .lmu-input-wrapper {
+  margin-top: 10px;
+}
+
+// wrapper
+.lmu-input-wrapper {
+  position: relative;
+}
+
+// input style
+input {
+  @include rect(150px, 70px);
+  font-size: 40px;
+  font-weight: 700;
+  text-align: center;
+}
+
+// weight unit
+app-number-unit {
+  position: absolute;
+  bottom: 15px;
+  left: calc(100% + 5px);
+}
+
+// hint for invalid weight
+app-pop-hint {
+  @include horizontalCenter;
+  position: absolute;
+  bottom: calc(100% + 5px);
+}

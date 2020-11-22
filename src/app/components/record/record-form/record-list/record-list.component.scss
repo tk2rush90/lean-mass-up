@@ -1,0 +1,19 @@
+@import "styles/mixins";
+@import "styles/props";
+
+:host {
+  @include padding(20px);
+  @include border(1px solid $gainsboro);
+  display: block;
+  overflow: auto;
+
+  @include under1024 {
+    padding: 0;
+    border: 0;
+    overflow: initial;
+  }
+}
+
+app-record-list-item + app-record-list-item {
+  margin-top: 15px;
+}

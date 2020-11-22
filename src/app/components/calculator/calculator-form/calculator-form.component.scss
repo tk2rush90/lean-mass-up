@@ -1,0 +1,73 @@
+@import "styles/mixins";
+@import "styles/props";
+
+:host {
+  display: block;
+  width: 550px;
+}
+
+app-box {
+  @include padding(35px 70px 45px);
+  @include flex(center, null, column, nowrap);
+  overflow: auto;
+
+  @include under1024 {
+    @include padding(20px 30px 30px);
+    height: 100%;
+
+    .lmu-nutrition-list-wrapper {
+      @include itemFlex(1, 1, 0);
+    }
+  }
+}
+
+app-logo {
+  display: none;
+
+  @include under1024 {
+    display: flex;
+  }
+}
+
+app-logo + app-weight-input {
+  @include under1024 {
+    margin-top: 50px;
+  }
+}
+
+app-protein-ratio {
+  width: 250px;
+}
+
+app-nutrition-value {
+  width: 100%;
+}
+
+app-weight-input + app-protein-ratio {
+  margin-top: 30px;
+}
+
+app-protein-ratio + app-required-calories {
+  margin-top: 10px;
+}
+
+// nutrition list wrapper
+.lmu-nutrition-list-wrapper {
+  width: 100%;
+}
+
+app-required-calories + .lmu-nutrition-list-wrapper {
+  margin-top: 20px;
+}
+
+app-nutrition-value + app-nutrition-value {
+  margin-top: 10px;
+}
+
+.lmu-nutrition-list-wrapper + .lmu-next-button {
+  margin-top: 60px;
+
+  @include under1024 {
+    margin-top: 30px;
+  }
+}

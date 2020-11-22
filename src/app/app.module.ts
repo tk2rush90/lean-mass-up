@@ -3,6 +3,9 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import {ToastModule} from './components/common/toast/toast.module';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {SpinnerModule} from './components/common/spinner/spinner.module';
 
 @NgModule({
   declarations: [
@@ -10,7 +13,10 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    ToastModule,
+    SpinnerModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

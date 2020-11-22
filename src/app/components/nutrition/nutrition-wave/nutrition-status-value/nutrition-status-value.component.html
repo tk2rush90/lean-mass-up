@@ -1,0 +1,15 @@
+<!-- field label -->
+<app-field-label
+  [en]="en"
+  [ko]="ko"
+  alignment="center"></app-field-label>
+
+<!-- fulfilled value -->
+<div class="lmu-fulfilled-value">
+  <app-animating-number [value]="fulfilled" numberDigits="0.0-1"></app-animating-number>
+</div>
+
+<!-- required value -->
+<div class="lmu-required-value">
+  /<app-animating-number [value]="required" numberDigits="0.0-1"></app-animating-number>g
+</div>

@@ -1,0 +1,14 @@
+<!-- box -->
+<app-box>
+  <!-- logo for mobile -->
+  <app-logo></app-logo>
+
+  <!-- food input form -->
+  <app-food-input-form
+    (submitFood)="addNewFood($event)"
+    [foods]="foods"></app-food-input-form>
+
+  <!-- food list -->
+  <app-food-list
+    [foods]="foods"></app-food-list>
+</app-box>

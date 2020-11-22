@@ -1,0 +1,75 @@
+<ng-container [ngSwitch]="viewType">
+  <!-- read type -->
+  <ng-container *ngSwitchCase="'read'">
+    <!-- detail wrapper -->
+    <div class="lmu-food-detail-wrapper lmu-read-detail">
+      <!-- name -->
+      <app-food-name
+        [food]="record"
+        type="record"></app-food-name>
+
+      <!-- food actions -->
+      <app-food-actions
+        (deleteClick)="changeViewType('delete')"
+        (editClick)="changeViewType('edit')"></app-food-actions>
+    </div>
+  </ng-container>
+
+  <!-- edit type -->
+  <ng-container *ngSwitchCase="'edit'">
+    <form
+      (ngSubmit)="onEditClick()"
+      [formGroup]="group">
+      <!-- detail wrapper -->
+      <div class="lmu-food-detail-wrapper lmu-edit-detail">
+        <!-- name -->
+        <app-food-name
+          [food]="record"
+          [hideInfo]="true"
+          class="lmu-editing-food-name"
+          type="record"></app-food-name>
+      </div>
+
+      <!-- quantity wrapper -->
+      <div class="lmu-quantity-wrapper">
+        <!-- label -->
+        <app-field-label
+          en="quantity"
+          ko="수량"></app-field-label>
+
+        <!-- quantity input wrapper -->
+        <div class="lmu-quantity-input-wrapper">
+          <input
+            appNumberInput
+            class="lmu-quantity-input"
+            formControlName="quantity"
+            type="number"/>
+
+          <span class="lmu-quantity-unit">EA</span>
+        </div>
+      </div>
+
+      <button hidden></button>
+    </form>
+
+    <!-- edit actions -->
+    <app-edit-actions
+      (editClick)="onEditClick()"
+      (cancelClick)="changeViewType('read')"></app-edit-actions>
+  </ng-container>
+
+  <!-- delete type -->
+  <ng-container *ngSwitchCase="'delete'">
+    <!-- detail wrapper -->
+    <div class="lmu-food-detail-wrapper lmu-delete-detail">
+      <!-- name -->
+      <app-food-name
+        [food]="record"
+        type="record"></app-food-name>
+    </div>
+
+    <app-delete-actions
+      (deleteClick)="deleteFood()"
+      (cancelClick)="changeViewType('read')"></app-delete-actions>
+  </ng-container>
+</ng-container>

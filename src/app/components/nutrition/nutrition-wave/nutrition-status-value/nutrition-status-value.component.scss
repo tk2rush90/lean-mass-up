@@ -1,0 +1,32 @@
+@import "styles/mixins";
+@import "styles/props";
+
+:host {
+  @include flex(center, null, column);
+}
+
+// fulfilled value
+.lmu-fulfilled-value {
+  font-size: 60px;
+  font-weight: 500;
+  line-height: 89px;
+
+  @include under1024 {
+    font-size: 40px;
+    line-height: 59px;
+  }
+}
+
+// required value
+.lmu-required-value {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 29px;
+  margin-top: -14px;
+
+  @include under1024 {
+    font-size: 14px;
+    line-height: 20px;
+    margin-top: -10px;
+  }
+}

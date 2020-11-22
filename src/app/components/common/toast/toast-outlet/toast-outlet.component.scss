@@ -1,0 +1,11 @@
+@import "styles/mixins";
+@import "styles/props";
+
+:host {
+  @include box(100%);
+  @include topLeft;
+  position: fixed;
+  display: block;
+  z-index: 1000;
+  pointer-events: none;
+}

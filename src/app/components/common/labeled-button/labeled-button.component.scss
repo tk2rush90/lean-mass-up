@@ -1,0 +1,88 @@
+@import "styles/mixins";
+@import "styles/props";
+
+@mixin color($color) {
+  @include customAttribute('lmu-color', $color) {
+    @content;
+  }
+}
+
+/**
+ * light button will be darken when hover and active
+ */
+@mixin lightButton($color, $background) {
+  button {
+    color: $color;
+    background-color: $background;
+
+    &:hover {
+      background-color: darken($background, 15%);
+    }
+
+    &:active {
+      background-color: darken($background, 30%);
+    }
+  }
+}
+
+/**
+ * semi light button will be darken when hover and active
+ */
+@mixin semiLightButton($color, $background) {
+  button {
+    color: $color;
+    background-color: $background;
+
+    &:hover {
+      background-color: darken($background, 5%);
+    }
+
+    &:active {
+      background-color: darken($background, 10%);
+    }
+  }
+}
+
+:host {
+  display: block;
+
+  @include color('blue') {
+    @include lightButton($white, $maya-blue);
+  }
+
+  @include color('grey') {
+    @include semiLightButton($nobel, $white-smoke2);
+  }
+
+  @include color('red') {
+    @include lightButton($white, $mona-lisa);
+  }
+}
+
+button {
+  @include box(100%);
+  @include flex(center, center, column);
+  border-radius: 10px;
+  transition: background-color .1s;
+  cursor: pointer;
+}
+
+// button label default
+.lmu-button-label {
+  text-align: center;
+}
+
+// korean label
+.lmu-ko-label {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+// english label
+.lmu-en-label {
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 15px;
+  text-transform: uppercase;
+}

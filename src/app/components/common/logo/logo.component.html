@@ -1,0 +1,8 @@
+<div
+  *ngFor="let letter of letters"
+  class="lmu-title-line">
+  <span
+    *ngFor="let item of letter"
+    [style.color]="item.color"
+    class="lmu-title-letter">{{item.letter}}</span>
+</div>

@@ -1,0 +1,37 @@
+@import "styles/mixins";
+@import "styles/props";
+
+@mixin type($type) {
+  @include customAttribute('lmu-type', $type) {
+    @content;
+  }
+}
+
+:host {
+  @include horizontalCenter;
+  @include padding(20px);
+  position: absolute;
+  display: block;
+  pointer-events: auto;
+  border-radius: 10px;
+  box-shadow: 0 30px 60px rgba($black, .16);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 22px;
+  color: $white;
+  user-select: none;
+  cursor: pointer;
+  max-width: 500px;
+  word-break: break-word;
+  bottom: 50px;
+
+  // for success type message
+  @include type('success') {
+    background-color: $night-rider;
+  }
+
+  // for error type message
+  @include type('error') {
+    background-color: $red-orange2;
+  }
+}

@@ -1,0 +1,49 @@
+@import "styles/mixins";
+@import "styles/props";
+
+:host {
+  @include box(100%);
+  display: block;
+  position: relative;
+  overflow: hidden;
+}
+
+app-logo {
+  @include horizontalCenter;
+  position: absolute;
+  top: 50px;
+  z-index: 10;
+
+  @include under1024 {
+    display: none;
+  }
+}
+
+app-wave-background {
+  @include box(100%);
+  @include topLeft;
+  position: absolute;
+
+  @include under1024 {
+    display: none;
+  }
+}
+
+.lmu-form {
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  opacity: 0;
+  margin-left: calc(-550px / 2);
+  margin-top: 120px;
+
+  @include under1024 {
+    @include box(100%);
+    margin-left: 0;
+    margin-top: 0;
+    top: 0;
+    left: 0;
+    // to cover the logo
+    z-index: 20;
+  }
+}

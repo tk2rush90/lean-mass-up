@@ -1,0 +1,104 @@
+@import "styles/mixins";
+@import "styles/props";
+
+:host {
+  @include flex(center, null, column);
+  user-select: none;
+}
+
+// wrapper for label
+.lmu-slider-label-wrapper {
+  @include rect(100%, 30px);
+  position: relative;
+}
+
+// label
+.lmu-slider-label {
+  @include rect(50px, 30px);
+  @include flex(center, center);
+  position: absolute;
+  border-radius: 5px;
+  top: 0;
+  left: 0;
+  background-color: $maya-blue;
+  transition: background-color .1s;
+}
+
+// slider label grabbing state
+.lmu-slider-label-grabbing {
+  background-color: $dodger-blue;
+
+  .lmu-slider-label-arrow {
+    path {
+      fill: $dodger-blue;
+    }
+  }
+}
+
+// value for label
+.lmu-slider-label-value {
+  color: $white;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+// arrow for label
+.lmu-slider-label-arrow {
+  position: absolute;
+  top: calc(100% - 1px);
+  left: 12px;
+  transform: translateX(-50%);
+
+  path {
+    transition: fill .1s;
+  }
+}
+
+// wrapper for slider track
+.lmu-slider-track-wrapper {
+  @include rect(calc(100% - 24px), 24px);
+  position: relative;
+  margin-top: 5px;
+
+  &:hover {
+    .lmu-slider-track:not(.lmu-grabbing) {
+      height: 10px;
+      background-color: $maya-blue;
+    }
+  }
+}
+
+// track for button
+.lmu-slider-track {
+  @include verticalCenter;
+  @include rect(100%, 3px);
+  border-radius: 5px;
+  background-color: $gainsboro;
+  position: absolute;
+  left: 0;
+  transition: height .1s, background-color .1s;
+  cursor: pointer;
+}
+
+// slider button
+.lmu-slider-button {
+  @include ball(24px);
+  @include border(1px solid $gainsboro);
+  position: absolute;
+  background-color: $white;
+  top: 0;
+  left: 0;
+  transform: translateX(-50%);
+  transition: border-color .1s;
+  cursor: grab;
+
+  &:hover {
+    border-color: $dodger-blue;
+  }
+
+  &.lmu-grabbing {
+    border-color: $dodger-blue;
+    border-width: 2px;
+    cursor: grabbing;
+  }
+}

@@ -1,0 +1,54 @@
+<div
+  (click)="startSearching()"
+  *ngIf="!searching; else realInput"
+  class="lmu-fake-input">
+  <app-food-name
+    *ngIf="selectedFood; else placeholderText"
+    [food]="selectedFood"
+    class="lmu-selected-food-name"
+    type="data"></app-food-name>
+
+  <ng-template #placeholderText>
+    <div class="lmu-placeholder">
+      {{placeholder}}
+    </div>
+  </ng-template>
+</div>
+
+<ng-template #realInput>
+  <input
+    #input
+    (blur)="markAsTouched()"
+    (input)="onSearchChange($event)"
+    (keydown.arrowDown)="onArrowDown()"
+    (keydown.arrowUp)="onArrowUp()"
+    (keydown.enter)="onEnter()"
+    (rendered)="input.focus()"
+    [placeholder]="placeholder"
+    [value]="search"
+    appRenderDetector
+    type="text"/>
+</ng-template>
+
+<!-- searched list -->
+<div
+  (autoClose)="closeOptions()"
+  [closeOnScroll]="true"
+  *ngIf="filteredFoods.length > 0"
+  [closerContainer]="elementRef"
+  [positionContainer]="elementRef"
+  appAutoCloser
+  appAutoPositioner
+  class="lmu-searched-list">
+  <!-- food name list -->
+  <app-food-name
+    (click)="onClickOption(item)"
+    (mouseover)="selectIndex = -1"
+    *ngFor="let item of filteredFoods; let index = index"
+    [class.lmu-focused]="index === selectIndex"
+    [class.lmu-selected]="item.name === selectedFood?.name"
+    [food]="item"
+    [hideInfo]="true"
+    class="lmu-searched-list-item"
+    type="data"></app-food-name>
+</div>

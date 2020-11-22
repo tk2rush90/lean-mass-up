@@ -1,0 +1,35 @@
+@import "styles/mixins";
+@import "styles/props";
+
+@mixin type($type) {
+  @include customAttribute('lmu-type', $type) {
+    @content;
+  }
+}
+
+:host {
+  @include flex(center, center);
+  position: relative;
+  user-select: none;
+
+  @include type('carbohydrates') {
+    color: $nobel;
+  }
+
+  @include type('proteins') {
+    color: $white;
+  }
+
+  @include type('fats') {
+    color: $black;
+  }
+}
+
+app-wave-background {
+  @include box(100%);
+  position: absolute;
+}
+
+app-nutrition-status-value {
+  pointer-events: none;
+}

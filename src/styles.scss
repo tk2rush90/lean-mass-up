@@ -1,1 +1,80 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+@import "app/styles/mixins";
+@import "app/styles/props";
+@import "app/components/common/inline-button/inline-button.directive";
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Noto Sans KR', sans-serif;
+
+  &::-webkit-scrollbar {
+    @include box(4px);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: lighten($black, 40%);
+    border-radius: 2px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: lighten($black, 90%);
+  }
+}
+
+body {
+  @include box(100%);
+  position: absolute;
+  overflow: hidden;
+}
+
+button, input, textarea {
+  outline: 0;
+  border: 0;
+  background-color: transparent;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+svg {
+  display: block;
+}
+
+input {
+  @include border(2px solid $gainsboro);
+  @include padding(0 10px);
+  border-radius: 10px;
+  background-color: transparent;
+  font-size: 16px;
+  font-weight: 500;
+  transition: border-color .1s;
+
+  &:focus {
+    border-color: $dodger-blue;
+  }
+
+  &::placeholder {
+    opacity: 1;
+    color: $gainsboro;
+  }
+
+  // hide number input arrows
+  // webkit
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  // moz
+  &[type=number] {
+    -moz-appearance: textfield;
+  }
+
+  // invalid
+  &.ng-invalid.ng-touched, &.ng-invalid.ng-dirty {
+    border-color: $red-orange2;
+  }
+}

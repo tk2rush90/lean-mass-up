@@ -1,0 +1,44 @@
+@import "styles/mixins";
+@import "styles/props";
+
+:host {
+  @include border(1px solid $gainsboro);
+  @include padding(15px);
+  border-radius: 10px;
+  display: block;
+  width: 100%;
+}
+
+// detail wrapper
+.lmu-food-detail-wrapper {
+  @include flex(center, space-between);
+  width: 100%;
+
+  @include under1024 {
+    @include flex(stretch, null, column);
+  }
+}
+
+.lmu-read-detail {
+  app-food-name {
+    width: calc(100% - 100px);
+
+    @include under1024 {
+      width: 100%;
+    }
+  }
+}
+
+app-food-name {
+  width: 100%;
+}
+
+app-food-name + app-food-actions {
+  @include under1024 {
+    margin-top: 10px;
+  }
+}
+
+.lmu-food-detail-wrapper + app-delete-actions {
+  margin-top: 10px;
+}

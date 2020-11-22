@@ -1,0 +1,110 @@
+@import "styles/mixins";
+@import "styles/props";
+
+:host {
+  display: block;
+}
+
+form {
+  @include flex(stretch, null, column, nowrap);
+}
+
+// form row
+.lmu-form-row {
+  @include flex(flex-start, space-between, null, nowrap);
+
+  @include under1024 {
+    @include flex(stretch, null, column, nowrap);
+  }
+
+  .lmu-food-name-wrapper {
+    @include itemFlex(1, 1, 300px);
+
+    @include under1024 {
+      @include itemFlex(0, 0, 0);
+      width: 100%;
+    }
+  }
+
+  .lmu-quantity-wrapper {
+    @include itemFlex(1, 1, 140px);
+
+    @include under1024 {
+      @include itemFlex(0, 0, 0);
+      width: 100%;
+    }
+  }
+}
+
+// field wrapper
+.lmu-field-wrapper {
+  @include flex(center, null, null, nowrap);
+  position: relative;
+}
+
+// quantity wrapper
+.lmu-quantity-wrapper {
+  @include under1024 {
+    @include flex(center, space-between);
+  }
+}
+
+.lmu-field-wrapper + button {
+  margin-top: 15px;
+}
+
+// input for food name
+.lmu-food-name-input {
+  // full width, label width, margin
+  @include rect(calc(100% - 58px - 10px), 50px);
+}
+
+app-field-label + .lmu-food-name-input {
+  margin-left: 10px;
+}
+
+// quantity input
+.lmu-quantity-input {
+  width: 58px;
+  height: 50px;
+  text-align: center;
+}
+
+app-field-label + .lmu-quantity-input-wrapper {
+  margin-left: 10px;
+}
+
+.lmu-quantity-input-wrapper {
+  @include flex(flex-start);
+  position: relative;
+}
+
+// quantity unit
+.lmu-quantity-unit {
+  font-size: 14px;
+  font-weight: 500;
+  position: relative;
+  top: 18px;
+}
+
+.lmu-quantity-input + .lmu-quantity-unit {
+  margin-left: 5px;
+}
+
+// add button
+.lmu-add-button {
+  @include rect(100%, 50px);
+}
+
+form + .lmu-add-button {
+  margin-top: 10px;
+}
+
+.lmu-food-name-wrapper + .lmu-quantity-wrapper {
+  margin-left: 23px;
+
+  @include under1024 {
+    margin-left: 0;
+    margin-top: 15px;
+  }
+}

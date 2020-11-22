@@ -1,0 +1,17 @@
+<!-- title logo -->
+<app-logo></app-logo>
+
+<!-- nutrition wrapper -->
+<div class="lmu-nutrition-wrapper">
+  <!-- render nutrition list -->
+  <app-nutrition-wave
+    *ngFor="let type of nutritionKeys; let index = index"
+    [index]="index"
+    [type]="type"
+    [requiredNutrition]="getRequiredNutrition(type)"
+    [fulfilledNutrition]="getFulfilledNutrition(type)"></app-nutrition-wave>
+</div>
+
+<!-- actions -->
+<app-nutrition-actions
+  [@actionsFading]="actionsState"></app-nutrition-actions>

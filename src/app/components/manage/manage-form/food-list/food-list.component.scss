@@ -1,0 +1,19 @@
+@import "styles/mixins";
+@import "styles/props";
+
+:host {
+  @include padding(20px);
+  @include border(1px solid $gainsboro);
+  display: block;
+  overflow: auto;
+
+  @include under1024 {
+    overflow: initial;
+    padding: 0;
+    border: 0;
+  }
+}
+
+app-food-list-item + app-food-list-item {
+  margin-top: 15px;
+}

@@ -1,0 +1,59 @@
+@import "styles/mixins";
+@import "styles/props";
+
+:host {
+  @include box(100%);
+  display: block;
+  position: relative;
+  overflow: hidden;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+app-logo {
+  @include horizontalCenter;
+  position: absolute;
+  top: 50px;
+  z-index: 10;
+
+  @include under1024 {
+    top: 20px;
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+  }
+}
+
+// nutrition wrapper
+.lmu-nutrition-wrapper {
+  @include box(100%);
+  @include flex(stretch);
+
+  @include under1024 {
+    @include flex(stretch, null, column);
+  }
+}
+
+// nutrition wave
+app-nutrition-wave {
+  width: calc(100% / 3);
+
+  @include under1024 {
+    width: 100%;
+    height: calc(100% / 3);
+  }
+}
+
+app-nutrition-actions {
+  @include bottomLeft;
+  position: absolute;
+  width: 100%;
+  z-index: 15;
+}

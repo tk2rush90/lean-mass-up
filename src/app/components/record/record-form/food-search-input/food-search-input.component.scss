@@ -1,0 +1,72 @@
+@import "styles/mixins";
+@import "styles/props";
+
+:host {
+  display: block;
+  position: relative;
+
+  &.ng-invalid.ng-touched, &.ng-invalid.ng-dirty {
+    input, .lmu-fake-input {
+      border-color: $red-orange2;
+    }
+  }
+}
+
+input, .lmu-fake-input {
+  @include rect(100%, 50px);
+  transition: border-color .1s;
+}
+
+.lmu-selected-food-name {
+  width: 100%;
+}
+
+// fake input
+.lmu-fake-input {
+  @include padding(0 10px);
+  @include flex(center);
+  @include border(2px solid $gainsboro);
+  border-radius: 10px;
+  cursor: text;
+}
+
+.lmu-placeholder {
+  font-size: 16px;
+  font-weight: 500;
+  color: $gainsboro;
+}
+
+// food searched list
+.lmu-searched-list {
+  position: fixed;
+  top: 100%;
+  left: 0;
+  box-shadow: 0 30px 60px rgba($black, .16);
+  border-radius: 10px;
+  background-color: $white;
+  max-height: calc(50px * 5);
+  overflow: auto;
+  z-index: 10;
+}
+
+// searched list item
+.lmu-searched-list-item {
+  @include padding(0 10px);
+  @include flex(flex-start, center, column);
+  cursor: pointer;
+  height: 50px;
+
+  &:hover, &.lmu-focused {
+    background-color: rgba($black, .05);
+  }
+
+  &.lmu-selected {
+    color: $dodger-blue;
+  }
+
+  ::ng-deep {
+    .lmu-food-name {
+      font-size: 14px;
+    }
+  }
+}

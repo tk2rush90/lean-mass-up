@@ -1,0 +1,20 @@
+@import "styles/mixins";
+@import "styles/props";
+
+:host {
+  @include flex(center, center);
+
+  @include under1024 {
+    @include flex(center, flex-start);
+  }
+}
+
+// action button
+.lmu-action-button {
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.lmu-action-button + .lmu-action-button {
+  margin-left: 20px;
+}

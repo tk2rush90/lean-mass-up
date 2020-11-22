@@ -1,0 +1,32 @@
+<!-- box -->
+<app-box>
+  <app-logo></app-logo>
+
+  <!-- header -->
+  <app-record-form-header
+    (dateChange)="onDateChange($event)"
+    [weight]="nutritionRecord?.weight"
+    [date]="date"></app-record-form-header>
+
+  <ng-container *ngIf="nutritionRecord; else noRecord">
+    <!-- input form -->
+    <app-record-input-form
+      (submitRecord)="addFoodRecord($event)"
+      *ngIf="isToday"
+      [nutritionRecord]="nutritionRecord"></app-record-input-form>
+
+    <!-- fulfilled list -->
+    <app-fulfilled-nutrition-list
+      [nutritionRecord]="nutritionRecord"></app-fulfilled-nutrition-list>
+
+    <!-- records -->
+    <app-record-list
+      [nutritionRecord]="nutritionRecord"></app-record-list>
+  </ng-container>
+
+  <ng-template #noRecord>
+    <app-no-list-placeholder>
+      등록된 기록이 없습니다
+    </app-no-list-placeholder>
+  </ng-template>
+</app-box>

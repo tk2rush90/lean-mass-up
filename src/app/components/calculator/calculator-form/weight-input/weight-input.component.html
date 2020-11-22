@@ -1,0 +1,32 @@
+<app-field-label
+  alignment="center"
+  en="weight"
+  ko="체중"></app-field-label>
+
+<!-- input wrapper -->
+<div class="lmu-input-wrapper">
+  <!-- hint for invalid zero -->
+  <app-pop-hint
+    *ngIf="hasErrorCode('invalidZero') && (dirty || touched)"
+    [@pop]="'pop'"
+    en="Please input weight"
+    ko="체중을 입력하세요"></app-pop-hint>
+
+  <!-- weight input -->
+  <input
+    #numberInput
+    (blur)="markAsTouched()"
+    (ngModelChange)="onValueChange($event)"
+    [class.ng-dirty]="dirty"
+    [class.ng-invalid]="hasError"
+    [class.ng-touched]="touched"
+    [max]="999"
+    [ngModel]="value"
+    appNumberInput
+    type="number"/>
+
+  <!-- input unit -->
+  <app-number-unit>
+    kg
+  </app-number-unit>
+</div>

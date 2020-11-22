@@ -1,0 +1,69 @@
+@import "styles/mixins";
+@import "styles/props";
+
+:host {
+  display: block;
+}
+
+// field row
+.lmu-field-row {
+  @include flex(center, space-between);
+
+  @include under1024 {
+    @include flex(center, space-between, nowrap);
+  }
+
+  .lmu-food-name-input {
+    @include under1024 {
+      @include itemFlex(1, 1, 0);
+      width: 50px;
+      margin-left: 10px;
+    }
+  }
+}
+
+// food name input
+.lmu-food-name-input {
+  @include rect(290px, 50px);
+}
+
+// wrapper for nutrition input and unit
+.lmu-nutrition-input-wrapper {
+  @include flex(flex-start);
+  position: relative;
+}
+
+// nutrition input
+.lmu-nutrition-input {
+  @include rect(80px, 50px);
+  text-align: center;
+}
+
+// nutrition unit
+.lmu-nutrition-unit {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  position: relative;
+  top: 15px;
+}
+
+.lmu-nutrition-input + .lmu-nutrition-unit {
+  margin-left: 5px;
+}
+
+.lmu-field-row + .lmu-field-row {
+  margin-top: 10px;
+}
+
+.lmu-add-button {
+  @include rect(100%, 50px);
+}
+
+form + .lmu-add-button {
+  margin-top: 10px;
+}
+
+form + app-edit-actions {
+  margin-top: 15px;
+}

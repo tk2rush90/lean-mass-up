@@ -1,0 +1,27 @@
+@import "styles/mixins";
+@import "styles/props";
+
+:host {
+  @include flex(flex-start, null, column);
+}
+
+// name
+.lmu-food-name {
+  @include ellipsis;
+  max-width: 100%;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+// info
+.lmu-food-info {
+  @include flex(center);
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 15px;
+}
+
+.lmu-food-nutrition-item + .lmu-food-nutrition-item {
+  margin-left: 10px;
+}

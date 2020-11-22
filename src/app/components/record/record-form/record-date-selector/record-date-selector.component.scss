@@ -1,0 +1,93 @@
+@import "styles/mixins";
+@import "styles/props";
+
+:host {
+  @include flex(center, space-between);
+  user-select: none;
+}
+
+// left-right arrow
+.lmu-arrow {
+  display: block;
+  cursor: pointer;
+
+  path {
+    fill: $black;
+    stroke: $black;
+    transition: fill .1s, stroke .1s;
+  }
+
+  &:hover {
+    path {
+      fill: lighten($black, 50%);
+      stroke: lighten($black, 50%);
+    }
+  }
+
+  &:active {
+    path {
+      fill: lighten($black, 70%);
+      stroke: lighten($black, 70%);
+    }
+  }
+
+  &.lmu-arrow-invalid {
+    path {
+      fill: $gainsboro;
+      stroke: $gainsboro;
+    }
+  }
+}
+
+// right arrow
+.lmu-right-arrow {
+  transform: rotate(180deg);
+}
+
+// date wrapper
+.lmu-selected-date-wrapper {
+  margin: 0 20px;
+  cursor: pointer;
+
+  &:hover {
+    .lmu-selected-date {
+      display: none;
+    }
+
+    .lmu-to-today {
+      @include flex(center, null, column);
+    }
+  }
+}
+
+.lmu-selected-date {
+  @include flex(center, null, column);
+}
+
+.lmu-to-today {
+  display: none;
+
+  .lmu-day {
+    color: $dodger-blue;
+  }
+}
+
+.lmu-day, .lmu-date {
+  white-space: nowrap;
+  font-weight: 500;
+  text-align: center;
+}
+
+// the day of week
+.lmu-day {
+  color: $nobel;
+  font-size: 12px;
+  line-height: 18px;
+}
+
+// date
+.lmu-date {
+  font-size: 14px;
+  line-height: 20px;
+}
+

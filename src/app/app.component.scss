@@ -1,0 +1,17 @@
+@import "styles/mixins";
+@import "styles/props";
+
+:host {
+  @include box(100%);
+  overflow: hidden;
+  position: absolute;
+  display: block;
+}
+
+// wrapper for spinner
+.lmu-spinner-wrapper {
+  @include topLeft;
+  @include box(100%);
+  @include flex(center, center);
+  position: absolute;
+}

@@ -1,0 +1,47 @@
+<form
+  (ngSubmit)="onSubmit()"
+  [formGroup]="group">
+  <!-- form row -->
+  <div class="lmu-form-row">
+    <!-- food name -->
+    <div class="lmu-field-wrapper lmu-food-name-wrapper">
+      <!-- label -->
+      <app-field-label
+        en="food name"
+        ko="식품명"></app-field-label>
+
+      <!-- input -->
+      <app-food-search-input
+        class="lmu-food-name-input"
+        formControlName="food"
+        placeholder="식품명을 입력하세요"></app-food-search-input>
+    </div>
+
+    <!-- quantity -->
+    <div class="lmu-field-wrapper lmu-quantity-wrapper">
+      <app-field-label
+        en="quantity"
+        ko="수량"></app-field-label>
+
+      <div class="lmu-quantity-input-wrapper">
+        <input
+          appNumberInput
+          class="lmu-quantity-input"
+          formControlName="quantity"
+          type="number"/>
+
+        <span class="lmu-quantity-unit">EA</span>
+      </div>
+    </div>
+  </div>
+
+  <button hidden></button>
+</form>
+
+<!-- submit button -->
+<app-labeled-button
+  (buttonClick)="onSubmit()"
+  class="lmu-add-button"
+  color="blue"
+  en="add"
+  ko="추가"></app-labeled-button>

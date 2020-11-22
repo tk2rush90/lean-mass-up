@@ -1,0 +1,13 @@
+@import "styles/mixins";
+@import "styles/props";
+
+:host {
+  border-radius: 10px;
+  box-shadow: 0 30px 60px rgba($black, .16);
+  display: block;
+  background-color: $white;
+
+  @include under1024 {
+    box-shadow: none;
+  }
+}

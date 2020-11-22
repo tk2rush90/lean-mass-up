@@ -1,0 +1,12 @@
+<ng-container *ngIf="nutritionRecord?.foodRecords?.length > 0; else noList">
+  <app-record-list-item
+    *ngFor="let item of nutritionRecord?.foodRecords"
+    [record]="item"
+    [nutritionRecord]="nutritionRecord"></app-record-list-item>
+</ng-container>
+
+<ng-template #noList>
+  <app-no-list-placeholder>
+    등록된 식단이 없습니다
+  </app-no-list-placeholder>
+</ng-template>

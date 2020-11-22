@@ -1,0 +1,13 @@
+@import "styles/mixins";
+@import "styles/props";
+
+:host {
+  @include box(100%);
+  display: block;
+  position: relative;
+}
+
+app-logo {
+  @include center;
+  position: absolute;
+}

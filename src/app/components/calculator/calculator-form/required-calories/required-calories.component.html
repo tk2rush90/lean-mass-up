@@ -1,0 +1,17 @@
+<app-field-label
+  alignment="center"
+  en="muscle growth calories"
+  ko="근육 성장 열량"></app-field-label>
+
+<!-- value wrapper -->
+<div class="lmu-required-calories-wrapper">
+  <!-- value -->
+  <div class="lmu-required-calories-value">
+    {{calories | number: '0.0-0'}}
+  </div>
+
+  <!-- number unit -->
+  <app-number-unit>
+    kcal
+  </app-number-unit>
+</div>
