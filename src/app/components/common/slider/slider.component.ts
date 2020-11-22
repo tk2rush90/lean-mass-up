@@ -233,9 +233,10 @@ export class SliderComponent extends FormControlBaseDirective<number> implements
    * update button and label position according to mouse position
    * @param event mouse event
    */
-  private _grabMovingHandler = (event: MouseEvent): void => {
+  private _grabMovingHandler = (event: MouseEvent | TouchEvent): void => {
+    const currentX = (event as TouchEvent).changedTouches ? (event as TouchEvent).changedTouches[0].pageX : (event as MouseEvent).x;
     const rect = this.sliderTrack.getBoundingClientRect();
-    let x = event.x - rect.x;
+    let x = currentX - rect.x;
 
     x = Math.min(Math.max(x, 0), rect.width);
 
