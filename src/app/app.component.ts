@@ -36,7 +36,11 @@ export class AppComponent {
     const sub = this.dbService.connect()
       .subscribe({
         next: () => {
-          this._getUserData();
+          if (this.storageService.userId) {
+            this._getUserData();
+          } else {
+            this.ready = true;
+          }
         },
         error: () => this.toastService.open('error', '잠시 후 다시 시도해주세요'),
       });
@@ -48,20 +52,18 @@ export class AppComponent {
    * get user data from db and save to app service
    */
   private _getUserData(): void {
-    if (this.storageService.userId) {
-      const sub = this.userDataService
-        .getUser(this.storageService.userId)
-        .subscribe({
-          next: res => {
-            this.appService.user = res;
-            this.ready = true;
-          },
-          error: err => {
-            this.toastService.open('error', err.message);
-          },
-        });
+    const sub = this.userDataService
+      .getUser(this.storageService.userId)
+      .subscribe({
+        next: res => {
+          this.appService.user = res;
+          this.ready = true;
+        },
+        error: err => {
+          this.toastService.open('error', err.message);
+        },
+      });
 
-      this.subscriptionService.store('_getUserData', sub);
-    }
+    this.subscriptionService.store('_getUserData', sub);
   }
 }
