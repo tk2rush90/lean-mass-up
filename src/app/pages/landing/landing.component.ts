@@ -3,10 +3,10 @@ import {LogoComponent} from '../../components/common/logo/logo.component';
 import {UserData} from '../../models/data/user-data';
 import {Router} from '@angular/router';
 import {StorageService} from '../../services/common/storage.service';
-import {UserDataService} from '../../services/data/user-data.service';
 import {SubscriptionService} from '../../services/subscription/subscription.service';
 import {ToastService} from '../../components/common/toast/toast.service';
 import {under1024} from '../../utils/window.util';
+import {AppService} from '../../services/common/app.service';
 
 @Component({
   selector: 'app-landing',
@@ -25,9 +25,9 @@ export class LandingComponent implements OnInit, OnDestroy {
 
   constructor(
     private router: Router,
+    private appService: AppService,
     private toastService: ToastService,
     private storageService: StorageService,
-    private userDataService: UserDataService,
     private subscriptionService: SubscriptionService,
   ) { }
 
@@ -43,8 +43,7 @@ export class LandingComponent implements OnInit, OnDestroy {
    * subscribe user data from db
    */
   private _subscribeUserData(): void {
-    const sub = this.userDataService
-      .getUser(this.storageService.userId)
+    const sub = this.appService.user$
       .subscribe({
         next: res => {
           this._user = res;
