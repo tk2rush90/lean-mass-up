@@ -37,6 +37,7 @@
   <div
     #sliderButton
     (mousedown)="grabButton()"
+    (touchstart)="grabButton()"
     [class.lmu-grabbing]="grabbing"
     class="lmu-slider-button"></div>
 </div>

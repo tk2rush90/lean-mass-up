@@ -225,6 +225,7 @@ export class SliderComponent extends FormControlBaseDirective<number> implements
    */
   private _addGrabMovingEvent(): void {
     window.addEventListener('mousemove', this._grabMovingHandler);
+    window.addEventListener('touchmove', this._grabMovingHandler);
   }
 
   /**
@@ -313,6 +314,7 @@ export class SliderComponent extends FormControlBaseDirective<number> implements
    */
   private _removeGrabMovingEvent(): void {
     window.removeEventListener('mousemove', this._grabMovingHandler);
+    window.removeEventListener('touchmove', this._grabMovingHandler);
   }
 
   /**
@@ -320,6 +322,7 @@ export class SliderComponent extends FormControlBaseDirective<number> implements
    */
   private _addReleaseEvent(): void {
     window.addEventListener('mouseup', this._grabReleaseHandler);
+    window.addEventListener('touchend', this._grabReleaseHandler);
   }
 
   /**
@@ -334,6 +337,7 @@ export class SliderComponent extends FormControlBaseDirective<number> implements
    */
   private _removeReleaseEvent(): void {
     window.removeEventListener('mouseup', this._grabReleaseHandler);
+    window.removeEventListener('touchend', this._grabReleaseHandler);
   }
 
   /**
