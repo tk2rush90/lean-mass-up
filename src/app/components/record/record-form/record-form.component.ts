@@ -9,7 +9,7 @@ import {FoodRecord} from '../../../models/data/food-record';
 import {FoodRecordDataService} from '../../../services/data/food-record-data.service';
 import {ToastService} from '../../common/toast/toast.service';
 import {combineLatest} from 'rxjs';
-import {map} from 'rxjs/operators';
+import {finalize, map} from 'rxjs/operators';
 import {ArchivedFoodDataService} from '../../../services/data/archived-food-data.service';
 
 @Component({
@@ -27,6 +27,8 @@ export class RecordFormComponent implements OnInit {
   user: UserData;
   // nutrition record
   nutritionRecord: NutritionRecord;
+  // loading state
+  loading = false;
   // today's date
   private _today: Date = new Date();
   // food records for nutrition record
@@ -69,8 +71,11 @@ export class RecordFormComponent implements OnInit {
    * get nutrition data
    */
   private _getNutritionRecord(): void {
+    this.loading = true;
+
     const sub = this.nutritionRecordDataService
       .getNutritionRecord(this.user.id, this.date)
+      .pipe(finalize(() => this.loading = false))
       .subscribe({
         next: res => {
           this.nutritionRecord = res;

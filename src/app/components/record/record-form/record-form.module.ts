@@ -24,6 +24,7 @@ import {EditActionsModule} from '../../common/edit-actions/edit-actions.module';
 import {DeleteActionsModule} from '../../common/delete-actions/delete-actions.module';
 import {LogoModule} from '../../common/logo/logo.module';
 import {NoListPlaceholderModule} from '../../common/no-list-placeholder/no-list-placeholder.module';
+import {SpinnerModule} from '../../common/spinner/spinner.module';
 
 
 
@@ -59,7 +60,8 @@ import {NoListPlaceholderModule} from '../../common/no-list-placeholder/no-list-
     EditActionsModule,
     DeleteActionsModule,
     LogoModule,
-    NoListPlaceholderModule
+    NoListPlaceholderModule,
+    SpinnerModule
   ]
 })
 export class RecordFormModule { }

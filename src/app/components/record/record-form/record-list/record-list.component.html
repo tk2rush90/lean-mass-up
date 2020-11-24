@@ -1,8 +1,9 @@
 <ng-container *ngIf="nutritionRecord?.foodRecords?.length > 0; else noList">
   <app-record-list-item
     *ngFor="let item of nutritionRecord?.foodRecords"
-    [record]="item"
-    [nutritionRecord]="nutritionRecord"></app-record-list-item>
+    [nutritionRecord]="nutritionRecord"
+    [readOnly]="readOnly"
+    [record]="item"></app-record-list-item>
 </ng-container>
 
 <ng-template #noList>

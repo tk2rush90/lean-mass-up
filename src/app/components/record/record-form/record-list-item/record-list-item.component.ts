@@ -17,6 +17,8 @@ export type RecordListItemViewType = 'read' | 'edit' | 'delete';
 export class RecordListItemComponent implements OnInit {
   // food record
   @Input() record: FoodRecord;
+  // set `true` to make record as read-only
+  @Input() readOnly = false;
   // nutrition record
   @Input() nutritionRecord: NutritionRecord;
   // view type

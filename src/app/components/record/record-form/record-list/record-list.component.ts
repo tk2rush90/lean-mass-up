@@ -9,6 +9,8 @@ import {NutritionRecord} from '../../../../models/data/nutrition-record';
 export class RecordListComponent implements OnInit {
   // nutrition record
   @Input() nutritionRecord: NutritionRecord;
+  // set `true` to make records as read-only
+  @Input() readOnly = false;
 
   constructor() { }
 

@@ -11,7 +11,8 @@
       <!-- food actions -->
       <app-food-actions
         (deleteClick)="changeViewType('delete')"
-        (editClick)="changeViewType('edit')"></app-food-actions>
+        (editClick)="changeViewType('edit')"
+        *ngIf="!readOnly"></app-food-actions>
     </div>
   </ng-container>
 
