@@ -4,8 +4,10 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "start:open": "ng serve -o",
     "build": "ng build",
-    "build:github": "ng build --prod --output-path=docs --deploy-url=/lean-mass-up/ --base-href=/lean-mass-up",
+    "build:github": "ng build --prod --output-path=docs --deploy-url=/lean-mass-up/ --base-href=/lean-mass-up && npm run copy:404",
+    "copy:404": "copy \".\\src\\404.html\" \".\\docs\\\"",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
@@ -20,6 +22,7 @@
     "@angular/platform-browser": "~10.1.4",
     "@angular/platform-browser-dynamic": "~10.1.4",
     "@angular/router": "~10.1.4",
+    "copy": "^0.3.2",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"
